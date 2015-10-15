@@ -8,11 +8,12 @@
 
 import UIKit
 
+var main: ViewController!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let pushSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge ,UIUserNotificationType.Sound ,UIUserNotificationType.Alert], categories: nil)
@@ -34,9 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        print("Creating artificial alert to simulate in app alarm")
+        main.stopTimer()
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Active)
         {
+            print("Creating artificial alert to simulate in app alarm")
             let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Turn Off", style: .Default, handler: nil))
             let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController

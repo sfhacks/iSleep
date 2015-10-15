@@ -8,7 +8,7 @@
         <!--iSleep-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iSleep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="iSleep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -162,6 +162,7 @@
                         <outlet property="label" destination="5Rs-cD-Ic2" id="qXJ-4a-yQr"/>
                         <outlet property="tableView" destination="Enu-aO-fjh" id="ias-z4-YhZ"/>
                         <outlet property="time" destination="5Rs-cD-Ic2" id="w5M-ee-BmR"/>
+                        <outlet property="timerButton" destination="KZX-ov-gUb" id="66B-Uk-t4P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

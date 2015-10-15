@@ -19,7 +19,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    @IBOutlet weak var timerButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
+        main = self
         super.viewDidLoad()
         tableView.dataSource = self;
         
@@ -29,13 +33,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             print("Creating default values")
             defaults.setObject(NSDate(), forKey: "Weekday");
             defaults.setObject(NSDate(), forKey: "Weekend");
-            defaults.setObject([10.0, 5.0, 6.5, 7.0, 10.0, 12.0, 0.0], forKey: "Sleep")
+            defaults.setObject([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], forKey: "Sleep")
             defaults.synchronize();
         }
         
         if (defaults.valueForKey("Sleep") == nil)
         {
-            defaults.setObject([10.0, 5.0, 6.5, 7.0, 10.0, 12.0, 0.0], forKey: "Sleep")
+            defaults.setObject([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], forKey: "Sleep")
             defaults.synchronize()
         }
         
@@ -67,17 +71,29 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     @IBAction func startStopPresssed(sender: UIButton) {
-        if (sender.titleLabel?.text == "Start!")
+        if (timerButton.titleLabel?.text == "Start!")
         {
-            sender.setTitle("Stop", forState: UIControlState.Normal)
-            sender.backgroundColor = UIColor.redColor()
-            startDate = NSDate()
-            sleeping = true
-            
+            startTimer()
         }else
         {
-            sender.setTitle("Start!", forState: UIControlState.Normal)
-            sender.backgroundColor = UIColor.greenColor()
+            stopTimer()
+        }
+    }
+    
+    func startTimer()
+    {
+        timerButton.setTitle("Stop", forState: UIControlState.Normal)
+        timerButton.backgroundColor = UIColor.redColor()
+        startDate = NSDate()
+        sleeping = true
+    }
+    
+    func stopTimer()
+    {
+        if (timerButton.titleLabel?.text == "Stop")
+        {
+            timerButton.setTitle("Start!", forState: UIControlState.Normal)
+            timerButton.backgroundColor = UIColor.greenColor()
             print("Time elapsed \(NSDate().timeIntervalSinceDate(startDate))")
             sleeping = false
             
@@ -92,7 +108,6 @@ class ViewController: UIViewController, UITableViewDataSource {
             defaults.synchronize()
         }
     }
-    @IBOutlet weak var tableView: UITableView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2;
