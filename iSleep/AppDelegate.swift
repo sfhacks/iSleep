@@ -25,16 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let token=deviceToken.description
-        print("Token : \(token)")
+        let token = deviceToken.description
+        print("Notifications token received : \(token)")
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print(error)
+        print("Error registering for notifications: \(error)")
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        print("*************")
+        print("Creating artificial alert to simulate in app alarm")
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Active)
         {
             let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)

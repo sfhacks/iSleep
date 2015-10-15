@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self;
-        print("Test");
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if (defaults.valueForKey("Weekday") == nil)
@@ -51,10 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     override func viewDidAppear(animated: Bool) {
-        print(NSUserDefaults.standardUserDefaults().description);
         tableView.reloadData()
-        
-        print(NSUserName())
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,7 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         {
             sender.setTitle("Start!", forState: UIControlState.Normal)
             sender.backgroundColor = UIColor.greenColor()
-            print(NSDate().timeIntervalSinceDate(startDate))
+            print("Time elapsed \(NSDate().timeIntervalSinceDate(startDate))")
             sleeping = false
             
             let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!

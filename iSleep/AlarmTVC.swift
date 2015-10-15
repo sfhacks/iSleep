@@ -5,7 +5,6 @@
 //  Created by Andrew Ke on 10/10/15.
 //  Copyright © 2015 Andrew. All rights reserved.
 //
-// Test change
 
 import UIKit
 
