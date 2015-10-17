@@ -32,8 +32,8 @@ class GraphViewController: UIViewController {
         barChartView.rightAxis.addLimitLine(ll)
         
         // Your sleep average limit line
-        let filtered = values.filter({ $0 != 0 })
-        let average = filtered.reduce(0) { $0 + $1 } / Double(values.count)
+        let filtered = values.filter({ $0 != 0.0 })
+        let average = filtered.reduce(0) { $0 + $1 } / Double(filtered.count)
         let ll2 = ChartLimitLine(limit: average, label: "Your Average")
         ll2.valueTextColor = UIColor.redColor()
         barChartView.rightAxis.addLimitLine(ll2)

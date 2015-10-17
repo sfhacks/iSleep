@@ -103,7 +103,18 @@ class ViewController: UIViewController, UITableViewDataSource {
             
             let defaults = NSUserDefaults.standardUserDefaults()
             var sleepArray = defaults.valueForKey("Sleep") as! [Double]
-            sleepArray[weekDay-1] = NSDate().timeIntervalSinceDate(startDate)/3600
+            
+            if (weekDay - 1 == 1)
+            {
+                print("Clearing sleep data (new week)")
+                sleepArray = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+            }
+            if (weekDay == 1) // Sunday
+            {
+                weekDay == 8
+            }
+            
+            sleepArray[weekDay-2] = NSDate().timeIntervalSinceDate(startDate)/3600
             defaults.setValue(sleepArray, forKey: "Sleep")
             defaults.synchronize()
         }
