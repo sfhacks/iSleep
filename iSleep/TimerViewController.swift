@@ -78,6 +78,7 @@ class TimerViewController: UIViewController {
         let notification = UILocalNotification()
         notification.fireDate = date
         notification.alertBody = "Good Morning!"
+        notification.applicationIconBadgeNumber = 1
         notification.soundName = "ringer.caf"
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit.NSWeekCalendarUnit

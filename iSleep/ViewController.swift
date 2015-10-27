@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             
             let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
             let myComponents = myCalendar.components(.Weekday, fromDate: NSDate())
-            let weekDay = myComponents.weekday
+            var weekDay = myComponents.weekday
             
             let defaults = NSUserDefaults.standardUserDefaults()
             var sleepArray = defaults.valueForKey("Sleep") as! [Double]
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
             if (weekDay == 1) // Sunday
             {
-                weekDay == 8
+                weekDay = 8
             }
             
             sleepArray[weekDay-2] = NSDate().timeIntervalSinceDate(startDate)/3600

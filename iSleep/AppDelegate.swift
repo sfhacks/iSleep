@@ -16,13 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let pushSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge ,UIUserNotificationType.Sound ,UIUserNotificationType.Alert], categories: nil)
-        application.registerUserNotificationSettings(pushSettings)
+        if #available(iOS 8, *)
+        {
+            let pushSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge ,UIUserNotificationType.Sound ,UIUserNotificationType.Alert], categories: nil)
+            application.registerUserNotificationSettings(pushSettings)
+        }
+        else
+        {
+            //UIApplication.sharedApplication().registerForRemoteNotificationTypes(([UIUserNotificationType.Alert,UIUserNotificationType.Badge,UIUserNotificationType.Sound])
+        }
+
         return true
     }
     
+    @available(iOS 8.0, *)
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        application.registerForRemoteNotifications()
+        //application.registerForRemoteNotifications()
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -34,15 +43,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Error registering for notifications: \(error)")
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
         main.stopTimer()
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Active)
         {
             print("Creating artificial alert to simulate in app alarm")
-            let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Turn Off", style: .Default, handler: nil))
             let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-            rootVC!.presentViewController(alert, animated: true, completion: nil)
+            
+            if #available(iOS 8.0, *) {
+                let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Turn Off", style: .Default, handler: nil))
+                rootVC!.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                let alertView = UIAlertView(title: "Alarm", message: "Good Morning", delegate: nil, cancelButtonTitle: "Turn Off");
+                alertView.alertViewStyle = .Default
+                alertView.show()
+            }
+            
         }
     }
 
