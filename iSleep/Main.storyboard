@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mw6-kv-iyj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mw6-kv-iyj">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -225,55 +225,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="Weekday Alarm Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uc-Wl-KM1">
-                                <rect key="frame" x="215" y="72" width="170" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ik3-ca-XTV">
+                                <rect key="frame" x="140" y="72" width="320" height="520"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U0L-q3-wnk">
+                                        <rect key="frame" x="83" y="0.0" width="154" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarms On:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzH-yt-Ofi">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="31"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="osQ-tc-iXS">
+                                                <rect key="frame" x="105" y="0.0" width="51" height="31"/>
+                                                <animations/>
+                                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="switchChanged" destination="EVW-IF-hVM" eventType="valueChanged" id="3OY-ab-hNs"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YR6-nl-fy4">
+                                        <rect key="frame" x="0.0" y="41" width="320" height="234"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Weekday Alarm Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uc-Wl-KM1">
+                                                <rect key="frame" x="75" y="0.0" width="170" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Xq-ZP-vr7">
+                                                <rect key="frame" x="0.0" y="21" width="320" height="213"/>
+                                                <animations/>
+                                                <date key="date" timeIntervalSinceReferenceDate="466191811.48147899">
+                                                    <!--2015-10-10 17:43:31 +0000-->
+                                                </date>
+                                                <connections>
+                                                    <action selector="changedAlarmTime" destination="EVW-IF-hVM" eventType="valueChanged" id="TYG-VY-0HZ"/>
+                                                </connections>
+                                            </datePicker>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-5v-mZ7">
+                                        <rect key="frame" x="0.0" y="285" width="320" height="235"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Weekend Alarm Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-5W-jh7">
+                                                <rect key="frame" x="74" y="0.0" width="172" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFX-xG-3eH">
+                                                <rect key="frame" x="0.0" y="21" width="320" height="214"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="466191811.48147899">
+                                                    <!--2015-10-10 17:43:31 +0000-->
+                                                </date>
+                                                <connections>
+                                                    <action selector="changedAlarmTime" destination="EVW-IF-hVM" eventType="valueChanged" id="yes-TU-w91"/>
+                                                </connections>
+                                            </datePicker>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFX-xG-3eH">
-                                <rect key="frame" x="20" y="356" width="560" height="224"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="466191811.48147899">
-                                    <!--2015-10-10 17:43:31 +0000-->
-                                </date>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="Weekend Alarm Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-5W-jh7">
-                                <rect key="frame" x="214" y="327" width="172" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Xq-ZP-vr7">
-                                <rect key="frame" x="20" y="101" width="560" height="218"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="466191811.48147899">
-                                    <!--2015-10-10 17:43:31 +0000-->
-                                </date>
-                            </datePicker>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7uc-Wl-KM1" firstAttribute="top" secondItem="Rrg-qn-iZh" secondAttribute="bottom" constant="8" id="1Sk-Iw-qOg"/>
-                            <constraint firstItem="9Xq-ZP-vr7" firstAttribute="leading" secondItem="ApB-NV-fPH" secondAttribute="leadingMargin" id="562-CE-is8"/>
-                            <constraint firstItem="9Xq-ZP-vr7" firstAttribute="centerX" secondItem="ApB-NV-fPH" secondAttribute="centerX" id="8aI-WB-Sbo"/>
-                            <constraint firstItem="ZFX-xG-3eH" firstAttribute="trailing" secondItem="ApB-NV-fPH" secondAttribute="trailingMargin" id="8yF-gD-Fy8"/>
-                            <constraint firstItem="6O5-5W-jh7" firstAttribute="centerY" secondItem="ApB-NV-fPH" secondAttribute="centerY" constant="37.5" id="A3y-I6-neu"/>
-                            <constraint firstItem="xK8-0N-bgx" firstAttribute="top" secondItem="ZFX-xG-3eH" secondAttribute="bottom" constant="20" id="KqC-qo-IB2"/>
-                            <constraint firstItem="ZFX-xG-3eH" firstAttribute="top" secondItem="6O5-5W-jh7" secondAttribute="bottom" constant="8" id="cWF-1s-EW7"/>
-                            <constraint firstItem="7uc-Wl-KM1" firstAttribute="centerX" secondItem="ApB-NV-fPH" secondAttribute="centerX" id="ef1-86-h3x"/>
-                            <constraint firstItem="9Xq-ZP-vr7" firstAttribute="top" secondItem="7uc-Wl-KM1" secondAttribute="bottom" constant="8" id="emP-g8-XRD"/>
-                            <constraint firstItem="ZFX-xG-3eH" firstAttribute="leading" secondItem="ApB-NV-fPH" secondAttribute="leadingMargin" id="fx6-YA-0Ew"/>
-                            <constraint firstItem="6O5-5W-jh7" firstAttribute="top" secondItem="9Xq-ZP-vr7" secondAttribute="bottom" constant="8" id="mzu-IT-v1w"/>
-                            <constraint firstItem="9Xq-ZP-vr7" firstAttribute="trailing" secondItem="ApB-NV-fPH" secondAttribute="trailingMargin" id="oZB-9S-IZT"/>
-                            <constraint firstItem="6O5-5W-jh7" firstAttribute="centerX" secondItem="ApB-NV-fPH" secondAttribute="centerX" id="vji-FK-cAv"/>
+                            <constraint firstItem="ik3-ca-XTV" firstAttribute="top" secondItem="Rrg-qn-iZh" secondAttribute="bottom" constant="8" id="NTa-gb-39D"/>
+                            <constraint firstItem="xK8-0N-bgx" firstAttribute="top" secondItem="ik3-ca-XTV" secondAttribute="bottom" constant="8" id="f7A-rZ-6fb"/>
+                            <constraint firstItem="ik3-ca-XTV" firstAttribute="centerX" secondItem="ApB-NV-fPH" secondAttribute="centerX" id="pH2-mw-g4H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Timers" id="cLN-lY-Xdb"/>
                     <connections>
+                        <outlet property="alarmSwitch" destination="osQ-tc-iXS" id="2uZ-qa-9vN"/>
                         <outlet property="weekday" destination="9Xq-ZP-vr7" id="4x0-0O-pN4"/>
                         <outlet property="weekend" destination="ZFX-xG-3eH" id="Xbd-S7-9bt"/>
                     </connections>
