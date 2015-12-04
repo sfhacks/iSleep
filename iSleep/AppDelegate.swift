@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        print("Stopping!")
         main.stopTimer()
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Active)
         {

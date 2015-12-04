@@ -874,6 +874,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrew.iSleepTests;
 				PRODUCT_NAME = iSleep;
+				PROVISIONING_PROFILE = "72aa8fc4-e084-44f2-93c5-73c000930013";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iSleep.app/iSleep";
 			};
 			name = Debug;
@@ -886,6 +887,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrew.iSleepTests;
 				PRODUCT_NAME = iSleep;
+				PROVISIONING_PROFILE = "72aa8fc4-e084-44f2-93c5-73c000930013";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iSleep.app/iSleep";
 			};
 			name = Release;
