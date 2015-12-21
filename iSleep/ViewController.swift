@@ -114,7 +114,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 weekDay = 8
             }
             
-            sleepArray[weekDay-2] = NSDate().timeIntervalSinceDate(startDate)/3600
+            sleepArray[weekDay-2] += NSDate().timeIntervalSinceDate(startDate)/3600
             defaults.setValue(sleepArray, forKey: "Sleep")
             defaults.synchronize()
         }

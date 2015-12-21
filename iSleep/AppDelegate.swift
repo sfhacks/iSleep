@@ -8,7 +8,7 @@
 
 import UIKit
 
-var main: ViewController!
+var main: ViewController?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,24 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        print("launching! \(launchOptions)")
         //UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
         
         //UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 16)!]
-        if #available(iOS 8, *)
+        let pushSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge ,UIUserNotificationType.Sound ,UIUserNotificationType.Alert], categories: nil)
+        application.registerUserNotificationSettings(pushSettings)
+        
+        if let _ = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey]
         {
-            let pushSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge ,UIUserNotificationType.Sound ,UIUserNotificationType.Alert], categories: nil)
-            application.registerUserNotificationSettings(pushSettings)
+            print("Stopping Timer!")
+            main?.stopTimer()
         }
-        else
-        {
-            //UIApplication.sharedApplication().registerForRemoteNotificationTypes(([UIUserNotificationType.Alert,UIUserNotificationType.Badge,UIUserNotificationType.Sound])
-        }
-
+        
         return true
     }
     
-    @available(iOS 8.0, *)
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         //application.registerForRemoteNotifications()
     }
@@ -49,23 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
         print("Stopping!")
-        main.stopTimer()
+        main?.stopTimer()
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Active)
         {
             print("Creating artificial alert to simulate in app alarm")
             let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
             
-            if #available(iOS 8.0, *) {
-                let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Turn Off", style: .Default, handler: nil))
-                rootVC!.presentViewController(alert, animated: true, completion: nil)
-            } else {
-                let alertView = UIAlertView(title: "Alarm", message: "Good Morning", delegate: nil, cancelButtonTitle: "Turn Off");
-                alertView.alertViewStyle = .Default
-                alertView.show()
-            }
-            
+            let alert = UIAlertController(title: "Alarm", message: "Good Morning!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Turn Off", style: .Default, handler: nil))
+            rootVC!.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        print("Stopping!")
+        main?.stopTimer()
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -106,7 +106,6 @@
 		A1302D901BCB3D0F00FC94AF /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1302D351BCB3D0F00FC94AF /* TimerViewController.swift */; };
 		A1302D911BCB3D0F00FC94AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1302D361BCB3D0F00FC94AF /* ViewController.swift */; };
 		A1302D931BCB496100FC94AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1302D921BCB496100FC94AF /* Main.storyboard */; };
-		A1AEB71D1C01019A00BD7BDC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AEB71C1C01019A00BD7BDC /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,8 +230,6 @@
 		A1302D351BCB3D0F00FC94AF /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		A1302D361BCB3D0F00FC94AF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A1302D921BCB496100FC94AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = /Users/Andy/Developer/iSleep/iSleep/Main.storyboard; sourceTree = "<absolute>"; };
-		A1AEB71B1C01019A00BD7BDC /* iSleep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iSleep.entitlements; sourceTree = "<group>"; };
-		A1AEB71C1C01019A00BD7BDC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +237,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1AEB71D1C01019A00BD7BDC /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +260,6 @@
 		A1302BC71BC9B64B00FC94AF = {
 			isa = PBXGroup;
 			children = (
-				A1AEB71C1C01019A00BD7BDC /* AudioToolbox.framework */,
 				A1302BD21BC9B64B00FC94AF /* iSleep */,
 				A1302BE71BC9B64C00FC94AF /* iSleepTests */,
 				A1302BF21BC9B64C00FC94AF /* iSleepUITests */,
@@ -285,7 +280,6 @@
 		A1302BD21BC9B64B00FC94AF /* iSleep */ = {
 			isa = PBXGroup;
 			children = (
-				A1AEB71B1C01019A00BD7BDC /* iSleep.entitlements */,
 				A1302CD51BCB3D0F00FC94AF /* Classes */,
 				A1302CD21BCB3D0F00FC94AF /* AlarmTVC.swift */,
 				A1302CD31BCB3D0F00FC94AF /* AppDelegate.swift */,
@@ -555,7 +549,7 @@
 						DevelopmentTeam = 3876732URN;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -835,13 +829,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = iSleep/iSleep.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iSleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrew.iSleep;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewke.iSleep;
 				PRODUCT_NAME = iSleep;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -852,13 +845,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = iSleep/iSleep.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iSleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrew.iSleep;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewke.iSleep;
 				PRODUCT_NAME = iSleep;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

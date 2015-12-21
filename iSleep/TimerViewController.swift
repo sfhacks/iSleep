@@ -104,7 +104,7 @@ class TimerViewController: UIViewController {
     {
         let notification = UILocalNotification()
         notification.fireDate = date
-        notification.alertBody = "Good Morning!"
+        notification.alertBody = "Good Morning! Swipe over to stop alarm and see how long you have slept."
         notification.applicationIconBadgeNumber = 0
         notification.soundName = "ringer.caf"
         notification.timeZone = NSTimeZone.defaultTimeZone()
