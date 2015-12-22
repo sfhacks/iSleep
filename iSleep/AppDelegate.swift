@@ -37,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //application.registerForRemoteNotifications()
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let token = deviceToken.description
-        print("Notifications token received : \(token)")
-    }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Error registering for notifications: \(error)")

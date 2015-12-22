@@ -837,7 +837,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewke.iSleep;
 				PRODUCT_NAME = iSleep;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -854,7 +854,7 @@
 				PRODUCT_NAME = iSleep;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -15,8 +15,8 @@ class GraphViewController: UIViewController {
         super.viewDidLoad()
         
         months = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        //let data = [1.0,8.0,7.0,3.0,6.0,5.0,10.0]
-        let data = NSUserDefaults.standardUserDefaults().valueForKey("Sleep") as! [Double]
+        let data = [1.0,8.0,7.0,3.0,6.0,5.0,10.0]
+        //let data = NSUserDefaults.standardUserDefaults().valueForKey("Sleep") as! [Double]
         print(data)
         setChart(months, values: data)
     }
